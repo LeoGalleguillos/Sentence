@@ -2,6 +2,7 @@
 
 return [
     'modules' => [
+        'LeoGalleguillos\Memcached',
         'LeoGalleguillos\Sentence',
         'LeoGalleguillos\Word',
         'Zend\Db',

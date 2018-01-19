@@ -2,6 +2,7 @@
 namespace LeoGalleguillos\Sentence;
 
 use LeoGalleguillos\Sentence\Model\Service as SentenceService;
+use LeoGalleguillos\Word\Model\Service as WordService;
 
 class Module
 {
@@ -23,6 +24,7 @@ class Module
             'factories' => [
                 SentenceService\ReplaceWords::class => function ($serviceManager) {
                     return new SentenceService\ReplaceWords(
+                        $serviceManager->get(WordService\Synonym::class)
                     );
                 },
             ],
