@@ -1,0 +1,16 @@
+{
+    "autoload": {
+        "psr-4": {
+            "LeoGalleguillos\\Sentence\\": "src/",
+            "LeoGalleguillos\\SentenceTest\\": "test/"
+        }
+    },
+    "license": "MIT",
+    "name": "leo-galleguillos/sentence",
+    "require": {
+        "leo-galleguillos/memcached": "dev-master",
+        "leo-galleguillos/word": "dev-master",
+        "zendframework/zend-test": "^3.1",
+        "zendframework/zend-db": "^2.9"
+    }
+}
