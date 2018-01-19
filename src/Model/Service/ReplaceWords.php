@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Sentence\Model\Service;
 
+use Exception;
 use LeoGalleguillos\Word\Model\Service as WordService;
 
 class ReplaceWords
@@ -15,16 +16,32 @@ class ReplaceWords
      * Replace words.
      *
      * @param string $sentence
-     * @param float $maxPercent Max percent of words to replace
      * @param int $dividend Used to determine which synonym to choose
+     * @param float $maxPercent Max percent of words to replace
      * @return $sentence
      */
     public function replaceWords(
         string $sentence,
-        float $maxPercent = 33,
-        int $dividend = 0
+        int $dividend,
+        float $maxPercent = 33
     ) : string {
         $words = preg_split('/\s+/', $sentence);
-        return $sentence;
+
+        $numberOfWordsReplaced = 0;
+
+        foreach ($words as $index => $word) {
+            try {
+                $synonym = $this->synonymService->getSynonymWithCapitalization(
+                    $word,
+                    $dividend
+                );
+                $words[$index] = $synonym->word;
+                $numberOfWordsReplaced++;
+            } catch (Exception $exception) {
+
+            }
+        }
+
+        return implode(' ', $words);
     }
 }
