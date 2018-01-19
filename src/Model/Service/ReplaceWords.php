@@ -15,11 +15,16 @@ class ReplaceWords
      * Replace words.
      *
      * @param string $sentence
-     * @param float $percent
+     * @param float $maxPercent Max percent of words to replace
+     * @param int $dividend Used to determine which synonym to choose
      * @return $sentence
      */
-    public function replaceWords(string $sentence, float $percent = 33) : string
-    {
+    public function replaceWords(
+        string $sentence,
+        float $maxPercent = 33,
+        int $dividend = 0
+    ) : string {
+        $words = preg_split('/\s+/', $sentence);
         return $sentence;
     }
 }
