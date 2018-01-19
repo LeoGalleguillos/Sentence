@@ -18,4 +18,13 @@ class ReplaceWordsTest extends TestCase
             $this->replaceWordsService
         );
     }
+
+    public function testReplaceWords()
+    {
+        $sentence = 'This is the amazing sentence.';
+        $this->assertSame(
+            $sentence,
+            $this->replaceWordsService->replaceWords($sentence)
+        );
+    }
 }
