@@ -27,6 +27,11 @@ class Module
                         $serviceManager->get(WordService\Synonym::class)
                     );
                 },
+                SentenceService\Variations::class => function ($serviceManager) {
+                    return new SentenceService\Variations(
+                        $serviceManager->get(SentenceService\ReplaceWords::class)
+                    );
+                },
             ],
         ];
     }
