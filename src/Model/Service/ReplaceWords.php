@@ -6,6 +6,11 @@ use LeoGalleguillos\Word\Model\Service as WordService;
 
 class ReplaceWords
 {
+    /**
+     * Construct.
+     *
+     * @param WordService\Synonym $synonymService
+     */
     public function __construct(
         WordService\Synonym $synonymService
     ) {
@@ -18,7 +23,7 @@ class ReplaceWords
      * @param string $sentence
      * @param int $dividend Used to determine which synonym to choose
      * @param float $maxPercent Max percent of words to replace
-     * @return $sentence
+     * @return string
      */
     public function replaceWords(
         string $sentence,
